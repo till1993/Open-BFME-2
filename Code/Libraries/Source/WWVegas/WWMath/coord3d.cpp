@@ -61,6 +61,7 @@ public:
     Coord3D &Scale2D(const Coord3DBase &that, float scale);
     float GetLength() const;
     float GetLength2D() const;
+    float GetLengthEstimate() const;
     float GetLengthEstimate2D() const;
     float GetLengthSqrd() const;
     float GetLengthSqrd2D() const;
@@ -230,6 +231,32 @@ float Coord3D::GetLengthEstimate2D() const
         return (float)(fabs(x) + length_estimate_factor * fabs(y));
     }
     return (float)(fabs(y) + length_estimate_factor * fabs(x));
+}
+
+float Coord3D::GetLengthEstimate() const
+{
+    float estimate;
+    if (fabs(x) > fabs(y)) {
+        estimate = (float)(fabs(x) + length_estimate_factor * fabs(y));
+    } else {
+        estimate = (float)(fabs(y) + length_estimate_factor * fabs(x));
+    }
+
+    if (estimate > fabs(z)) {
+        if (fabs(x) > fabs(y)) {
+            estimate = (float)(fabs(x) + length_estimate_factor * fabs(y));
+        } else {
+            estimate = (float)(fabs(y) + length_estimate_factor * fabs(x));
+        }
+        return (float)(estimate + length_estimate_factor * fabs(z));
+    }
+
+    if (fabs(x) > fabs(y)) {
+        estimate = (float)(fabs(x) + length_estimate_factor * fabs(y));
+    } else {
+        estimate = (float)(fabs(y) + length_estimate_factor * fabs(x));
+    }
+    return (float)(fabs(z) + length_estimate_factor * estimate);
 }
 
 float Coord3D::GetLengthSqrd() const
