@@ -216,7 +216,6 @@ _zlibVersion,,0x006946C0,6,Code/Libraries/Source/Compression/ZLib/zutil.c,matche
 ?d_000034fa@@YAXXZ,,0x000034FA,42,Code/gen_asm/d_000010cf.asm,matched,gen-dump;ghidra=areApproxEqual
 ?d_000036d1@@YAXXZ,,0x000036D1,49,Code/gen_asm/d_000010cf.asm,matched,gen-dump;ghidra=scale
 ?d_00003916@@YAXXZ,,0x00003916,101,Code/gen_asm/d_000010cf.asm,matched,gen-dump;ghidra=Rotate
-?d_000039bb@@YAXXZ,,0x000039BB,80,Code/gen_asm/d_000010cf.asm,matched,gen-dump;ghidra=Rotate
 ?d_00003c70@@YAXXZ,,0x00003C70,97,Code/gen_asm/d_000010cf.asm,matched,gen-dump;ghidra=CrossProduct
 ?d_00003fee@@YAXXZ,,0x00003FEE,46,Code/gen_asm/d_000010cf.asm,matched,gen-dump;ghidra=operator-
 ?d_0000401c@@YAXXZ,,0x0000401C,93,Code/gen_asm/d_000010cf.asm,matched,gen-dump;ghidra=SetIdentity
@@ -647,3 +646,4 @@ _free,,0x00030830,17,Code/GameEngine/Source/Common/System/GameMemoryFree.cpp,mat
 ?GetLengthEstimate@Coord3D@@QBEMXZ,0x00003ACE,0x00003ACE,372,Code/Libraries/Source/WWVegas/WWMath/coord3d.cpp,matched,clean C++ three-axis length estimate
 ??$__write_integer_backward@_K@_STL@@YAPADPADH_K@Z,,0x0000CF60,238,Code/Libraries/Source/WWVegas/WWLib/stlport_write_integer_backward.cpp,matched,vendored=stlport-4.5.3;unsigned 64-bit integer formatter upstream body
 ??$__write_decimal_backward@_J@_STL@@YAPADPAD_JHABU__true_type@0@@Z,,0x0000D250,124,Code/Libraries/Source/WWVegas/WWLib/stlport_write_integer_backward.cpp,matched,vendored=stlport-4.5.3;signed 64-bit decimal formatter helper
+?Rotate@Coord2D@@QAEAAV1@ABV1@M@Z,0x000039BB,0x000039BB,80,Code/Libraries/Source/WWVegas/WWMath/coord2d.cpp,matched,reconstructed=x87 fsincos source rotation;compiler-blocker

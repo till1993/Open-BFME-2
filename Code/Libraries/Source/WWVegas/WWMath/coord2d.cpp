@@ -38,6 +38,7 @@ public:
     Coord2D &operator/=(float divisor);
     Coord2D &Rotate(float sine, float cosine);
     Coord2D &Rotate(Coord2D &coord, float sine, float cosine);
+    Coord2D &Rotate(const Coord2D &coord, float angle);
     Coord2D &SetMaxVect();
     Coord2D &SetMinVect();
     Coord2D &SetXAxis();
@@ -101,6 +102,24 @@ Coord2D &Coord2D::Rotate(Coord2D &coord, float sine, float cosine)
 {
     x = cosine * coord.x - sine * coord.y;
     y = cosine * coord.y + sine * coord.x;
+    return *this;
+}
+
+Coord2D &Coord2D::Rotate(const Coord2D &coord, float angle)
+{
+    struct TrigValues
+    {
+        float sine;
+        float cosine;
+    } trig;
+    __asm {
+        fld angle
+        fsincos
+        fstp trig.cosine
+        fstp trig.sine
+    }
+    x = trig.cosine * coord.x - trig.sine * coord.y;
+    y = trig.cosine * coord.y + trig.sine * coord.x;
     return *this;
 }
 
