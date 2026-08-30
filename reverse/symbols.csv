@@ -65,3 +65,4 @@ __aulldiv,0x006295C0,MSVCR71 unsigned 64-bit division helper; address confirmed 
 ??0_Time_Info@_STL@@QAE@XZ,0x00007920,STLport 4.5.3 _Time_Info constructor; target body constructs the exact 14 day 24 month 2 AM-PM and 5 format strings declared by the vendored header
 ?_Init_timeinfo@_STL@@YAXAAV_Time_Info@1@@Z,0x00019260,STLport 4.5.3 default time-info initializer; target body fills the _Time_Info string table declared by the vendored header
 __aulldvrm,0x006296E0,MSVCR71 unsigned 64-bit division and remainder helper; address confirmed by retail formatter REL32 displacement
+__alldvrm,0x006296E0,MSVCR71 signed 64-bit division and remainder helper; folded with unsigned helper at the retail call target

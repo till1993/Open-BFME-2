@@ -25,6 +25,22 @@ extern const char __hex_char_table_lo[];
 extern const char __hex_char_table_hi[];
 
 struct __false_type {};
+struct __true_type {};
+
+template <class Integer>
+struct integer_sign;
+
+template <>
+struct integer_sign<unsigned __int64>
+{
+	typedef __false_type type;
+};
+
+template <>
+struct integer_sign<__int64>
+{
+	typedef __true_type type;
+};
 
 template <class Integer>
 __forceinline char *__cdecl __write_decimal_backward(
@@ -34,6 +50,27 @@ __forceinline char *__cdecl __write_decimal_backward(
 	for (; value != 0; value /= 10)
 		*--current = (int)(value % 10) + '0';
 	if (flags & ios_base::showpos)
+		*--current = '+';
+	return current;
+}
+
+template <class Integer>
+inline char *__cdecl __write_decimal_backward(
+		char *current, Integer value, ios_base::fmtflags flags,
+		const __true_type &)
+{
+	__int64 temporary = value;
+	const bool negative = value < 0;
+
+	if (negative)
+		temporary = -temporary;
+
+	for (; temporary != 0; temporary /= 10)
+		*--current = (int)(temporary % 10) + '0';
+
+	if (negative)
+		*--current = '-';
+	else if (flags & ios_base::showpos)
 		*--current = '+';
 	return current;
 }
@@ -81,7 +118,8 @@ char *__cdecl __write_integer_backward(
 
 		default:
 			current = __write_decimal_backward(
-					current, value, flags, __false_type());
+					current, value, flags,
+					typename integer_sign<Integer>::type());
 			break;
 		}
 	}
@@ -91,5 +129,11 @@ char *__cdecl __write_integer_backward(
 
 template char *__cdecl __write_integer_backward<unsigned __int64>(
 		char *, ios_base::fmtflags, unsigned __int64);
+
+template char *__cdecl __write_integer_backward<__int64>(
+		char *, ios_base::fmtflags, __int64);
+
+template char *__cdecl __write_decimal_backward<__int64>(
+		char *, __int64, ios_base::fmtflags, const __true_type &);
 
 }

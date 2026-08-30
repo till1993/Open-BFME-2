@@ -374,7 +374,6 @@ _zlibVersion,,0x006946C0,6,Code/Libraries/Source/Compression/ZLib/zutil.c,matche
 ?d_0000c390@@YAXXZ,,0x0000C390,116,Code/gen_asm/d_0000b550.asm,matched,gen-dump;ghidra=FUN_0040c390
 ?d_0000d050@@YAXXZ,,0x0000D050,214,Code/gen_asm/d_0000b550.asm,matched,gen-dump;ghidra=FUN_0040d050
 ?d_0000d180@@YAXXZ,,0x0000D180,206,Code/gen_asm/d_0000b550.asm,matched,gen-dump;ghidra=FUN_0040d180
-?d_0000d250@@YAXXZ,,0x0000D250,124,Code/gen_asm/d_0000b550.asm,matched,gen-dump;ghidra=FUN_0040d250
 ?d_0000d460@@YAXXZ,,0x0000D460,216,Code/gen_asm/d_0000b550.asm,matched,gen-dump;ghidra=FUN_0040d460
 ?d_0000d540@@YAXXZ,,0x0000D540,118,Code/gen_asm/d_0000b550.asm,matched,gen-dump;ghidra=FUN_0040d540
 ?d_0000d650@@YAXXZ,,0x0000D650,818,Code/gen_asm/d_0000b550.asm,matched,gen-dump;ghidra=FUN_0040d650
@@ -647,3 +646,4 @@ _free,,0x00030830,17,Code/GameEngine/Source/Common/System/GameMemoryFree.cpp,mat
 ??0?$time_put@GV?$ostreambuf_iterator@GV?$char_traits@G@_STL@@@_STL@@@_STL@@QAE@I@Z,,0x00008ED0,108,Code/Libraries/Source/WWVegas/WWLib/stlport_wide_time_put_ctor.cpp,matched,vendored=stlport-4.5.3;wide time_put default constructor from _time_facets.h
 ?GetLengthEstimate@Coord3D@@QBEMXZ,0x00003ACE,0x00003ACE,372,Code/Libraries/Source/WWVegas/WWMath/coord3d.cpp,matched,clean C++ three-axis length estimate
 ??$__write_integer_backward@_K@_STL@@YAPADPADH_K@Z,,0x0000CF60,238,Code/Libraries/Source/WWVegas/WWLib/stlport_write_integer_backward.cpp,matched,vendored=stlport-4.5.3;unsigned 64-bit integer formatter upstream body
+??$__write_decimal_backward@_J@_STL@@YAPADPAD_JHABU__true_type@0@@Z,,0x0000D250,124,Code/Libraries/Source/WWVegas/WWLib/stlport_write_integer_backward.cpp,matched,vendored=stlport-4.5.3;signed 64-bit decimal formatter helper
